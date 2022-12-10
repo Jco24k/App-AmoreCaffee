@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AmoreCaffeApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="MenuFragment">Menú</string>
+    <string name="CarritoFragment">Carrito</string>
+    <string name="MiCuentaFragment">Mi Cuenta</string>
+    <string name="valetcorreo">Ingresar su correo</string>
+    <string name="valtitulo">Iniciar Sesion</string>
+    <string name="valpassusuario">Ingrese su contraseña</string>
+    <string name="valbtnlogin">Ingresar</string>
+</resources>
