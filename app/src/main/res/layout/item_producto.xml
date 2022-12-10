@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedor"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imvProducto"
+            android:layout_width="140dp"
+            android:layout_height="141dp"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <TextView
+            android:id="@+id/txtNomPro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Nombre Producto"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/imvProducto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDescripcion"
+            android:layout_width="232dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text=".........\n.........\n........."
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/imvProducto"
+            app:layout_constraintTop_toBottomOf="@+id/txtNomPro" />
+
+        <TextView
+            android:id="@+id/txtSubTotal"
+            android:layout_width="78dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="Subtotal"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescripcion" />
+
+        <EditText
+            android:id="@+id/txtCantidad"
+            android:layout_width="83dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="10"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/imvProducto"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescripcion"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

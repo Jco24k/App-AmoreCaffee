@@ -5,15 +5,17 @@ public class Categoria {
     private String id;
     private String nombre;
     private Boolean estado;
+    private String imagenUrl;
     private Producto[] producto;
 
     public Categoria() {
     }
 
-    public Categoria(String id, String nombre, Boolean estado) {
+    public Categoria(String id, String nombre, Boolean estado, String imagenUrl) {
         this.id = id;
         this.nombre = nombre;
         this.estado = estado;
+        this.imagenUrl = imagenUrl;
     }
 
     public String getId() {
@@ -47,4 +49,8 @@ public class Categoria {
     public void setProducto(Producto[] producto) {
         this.producto = producto;
     }
+
+    public String getImagenUrl() {  return imagenUrl; }
+
+    public void setImagenUrl(String imagenUrl) {this.imagenUrl = imagenUrl;}
 }

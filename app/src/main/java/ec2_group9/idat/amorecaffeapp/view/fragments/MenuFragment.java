@@ -31,7 +31,7 @@ public class MenuFragment extends Fragment {
         binding = FragmentMenuBinding.inflate(inflater, container,
                 false);
 
-        categoriaViewModel = new ViewModelProvider(requireActivity())
+        /*categoriaViewModel = new ViewModelProvider(requireActivity())
                 .get(CategoriaViewModel.class);
         categoriaViewModel.findAll();
         categoriaViewModel.findAllMutableLiveData.observe(getViewLifecycleOwner(),
@@ -42,7 +42,7 @@ public class MenuFragment extends Fragment {
                             Log.i(i+1+"CATEGORIAS: ", responseCategorias.get(i).getNombre());
                         }
                     }
-                });
+                });*/
         return binding.getRoot();
     }
 }
