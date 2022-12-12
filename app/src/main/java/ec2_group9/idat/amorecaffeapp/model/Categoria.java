@@ -8,6 +8,7 @@ public class Categoria implements Parcelable {
     private String id;
     private String nombre;
     private Boolean estado;
+    private String imagenUrl;
     private Producto[] producto;
     private String imagenUrl;
 
