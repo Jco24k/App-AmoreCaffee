@@ -1,6 +1,9 @@
 package ec2_group9.idat.amorecaffeapp.model;
 
-public class Producto {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Producto implements Parcelable {
 
     private String id;
     private String nombre;
@@ -23,6 +26,45 @@ public class Producto {
         this.categoria = categoria;
         this.estado = estado;
     }
+
+    @Override
+    public int describeContents() { return 0; }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(nombre);
+        parcel.writeString(descripcion);
+        parcel.writeDouble(precio);
+        parcel.writeInt(cantidad);
+        parcel.writeByte((byte) (estado == null ? 0 : estado ? 1 : 2));
+        parcel.writeString(imagenUrl);
+        parcel.writeParcelable(categoria, i);
+    }
+
+    protected Producto(Parcel in) {
+        id = in.readString();
+        nombre = in.readString();
+        descripcion = in.readString();
+        precio = in.readDouble();
+        cantidad = in.readInt();
+        byte tmpEstado = in.readByte();
+        estado = tmpEstado == 0 ? null : tmpEstado == 1;
+        imagenUrl = in.readString();
+        categoria = in.readParcelable(Categoria.class.getClassLoader());
+    }
+
+    public static final Creator<Producto> CREATOR = new Creator<Producto>() {
+        @Override
+        public Producto createFromParcel(Parcel in) {
+            return new Producto(in);
+        }
+
+        @Override
+        public Producto[] newArray(int size) {
+            return new Producto[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -87,4 +129,5 @@ public class Producto {
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
     }
+
 }

@@ -18,6 +18,9 @@ public interface ProductoInterface {
     @GET(Routes.producto +"/{search}")
     public Call<Producto> findOne(@Path("search") String search);
 
+    @GET(Routes.producto +"/categoria/search/{categoria}")
+    public Call<List<Producto>> findProductCateg(@Path("categoria") String categoria);
+
     @POST(Routes.producto +"/create")
     public Call<Producto> create(@Body Producto cliente);
 

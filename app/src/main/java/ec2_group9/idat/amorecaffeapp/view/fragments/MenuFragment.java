@@ -19,9 +19,11 @@ import java.util.List;
 import ec2_group9.idat.amorecaffeapp.databinding.FragmentMenuBinding;
 import ec2_group9.idat.amorecaffeapp.model.Categoria;
 import ec2_group9.idat.amorecaffeapp.view.MenuActivity;
+import ec2_group9.idat.amorecaffeapp.view.adapter.CategoriaAdapter;
 import ec2_group9.idat.amorecaffeapp.viewModel.CategoriaViewModel;
 
 public class MenuFragment extends Fragment {
+
     private FragmentMenuBinding binding;
     private CategoriaViewModel categoriaViewModel;
 
@@ -30,17 +32,17 @@ public class MenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentMenuBinding.inflate(inflater, container,
                 false);
-
         categoriaViewModel = new ViewModelProvider(requireActivity())
                 .get(CategoriaViewModel.class);
+        binding.rvCategoria.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        CategoriaAdapter adapter = new CategoriaAdapter(getContext());
+        binding.rvCategoria.setAdapter(adapter);
         categoriaViewModel.findAll();
         categoriaViewModel.findAllMutableLiveData.observe(getViewLifecycleOwner(),
                 new Observer<List<Categoria>>() {
                     @Override
                     public void onChanged(List<Categoria> responseCategorias) {
-                        for (int i = 0; i<responseCategorias.size();i++){
-                            Log.i(i+1+"CATEGORIAS: ", responseCategorias.get(i).getNombre());
-                        }
+                        adapter.setCategorias(responseCategorias);
                     }
                 });
         return binding.getRoot();

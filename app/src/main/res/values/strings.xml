@@ -12,4 +12,6 @@
     <string name="valtitulo">Iniciar Sesion</string>
     <string name="valpassusuario">Ingrese su contraseña</string>
     <string name="valbtnlogin">Ingresar</string>
+    <string name="valbtnDetalles">Detalles</string>
+    <string name="valbtnAnadir">Añadir</string>
 </resources>
