@@ -37,7 +37,7 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.View
     }
 
     public void setCategorias(List<Categoria> lista) {
-        listCategoria.addAll(lista);
+        listCategoria = lista;
         notifyDataSetChanged();
     }
 

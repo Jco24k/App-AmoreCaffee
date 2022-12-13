@@ -32,10 +32,6 @@ public class MenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentMenuBinding.inflate(inflater, container,
                 false);
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of 0bd91ac (.)
         categoriaViewModel = new ViewModelProvider(requireActivity())
                 .get(CategoriaViewModel.class);
         binding.rvCategoria.setLayoutManager(new LinearLayoutManager(requireActivity()));

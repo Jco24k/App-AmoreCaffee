@@ -15,7 +15,6 @@
         android:theme="@style/Theme.AmoreCaffeApp"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
             android:name=".view.DetalleProductoActivity"
             android:exported="false">
             <meta-data
@@ -30,8 +29,6 @@
                 android:value="" />
         </activity>
         <activity
-=======
->>>>>>> parent of 0bd91ac (.)
             android:name=".view.MenuActivity"
             android:exported="false">
             <meta-data

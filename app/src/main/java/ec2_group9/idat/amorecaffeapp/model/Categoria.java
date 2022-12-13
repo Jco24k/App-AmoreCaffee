@@ -19,7 +19,12 @@ public class Categoria implements Parcelable {
         this.nombre = nombre;
         this.estado = estado;
     }
-
+    public Categoria(String id, String nombre, Boolean estado, String imagenUrl) {
+        this.id = id;
+        this.nombre = nombre;
+        this.estado = estado;
+        this.imagenUrl = imagenUrl;
+    }
     @Override
     public int describeContents() { return 0; }
 
@@ -82,12 +87,10 @@ public class Categoria implements Parcelable {
     public void setProducto(Producto[] producto) {
         this.producto = producto;
     }
-<<<<<<< HEAD
 
     public String getImagenUrl() { return imagenUrl; }
 
     public void setImagenUrl(String imagenUrl) { this.imagenUrl = imagenUrl; }
 
-=======
->>>>>>> parent of 0bd91ac (.)
+
 }
