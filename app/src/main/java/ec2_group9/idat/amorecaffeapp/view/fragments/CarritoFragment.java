@@ -31,8 +31,6 @@ public class CarritoFragment extends Fragment{
 
         CarritoGlobal.setActivityCarrito(this.getActivity());
 
-        CarritoGlobal.cargarListaDetalllePrueba();
-
         enviarResultadoInputs();
 
         //CARGANDO LOS DATOS AL RECYCLERVIEW CON EL ADAPTADOR

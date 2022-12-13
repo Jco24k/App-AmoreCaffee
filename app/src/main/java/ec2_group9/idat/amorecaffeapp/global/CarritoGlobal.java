@@ -11,7 +11,7 @@ import ec2_group9.idat.amorecaffeapp.model.DetallePedido;
 import ec2_group9.idat.amorecaffeapp.model.Producto;
 
 public class CarritoGlobal {
-    public static List<DetallePedido> listaDetallePedido = null;
+    public static List<DetallePedido> listaDetallePedido = new ArrayList<>();
     public static Activity activityCarrito= null;
 
     public static void cargarListaDetalllePrueba(){
@@ -56,7 +56,20 @@ public class CarritoGlobal {
         listaDetallePedido = lista;
     }
 
-    public static void agregarDetalle(DetallePedido detallePedido ){
-        listaDetallePedido.add(detallePedido);
+    public static void agregarDetalle(Producto pro ){
+        boolean add = true;
+        for (DetallePedido det:listaDetallePedido) {
+            if(det.getProducto().getId().equals(pro.getId())){
+                det.setCantidad(det.getCantidad()+1);
+                det.setSubtotal(det.getPrecio()* det.getCantidad());
+                add = false;
+                break;
+            }
+        }
+        if(add) {
+            listaDetallePedido.add(new DetallePedido(
+                    pro.getPrecio(), 1, pro.getPrecio() * 1, pro
+            ));
+        }
     }
 }

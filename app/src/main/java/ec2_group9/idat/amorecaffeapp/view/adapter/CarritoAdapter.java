@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +53,9 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
         holder.binding.txtSubTotal.setText(String.format("%.2f", responseDetalle.getSubtotal()));
         holder.binding.txtCantidad.setText(responseDetalle.getCantidad()+"");
         int indexSelection = String.valueOf(holder.binding.txtCantidad.getText()).length();
+        Glide.with(holder.binding.getRoot())
+                .load(responseDetalle.getProducto().getImagenUrl())
+                .into(holder.binding.imvProducto);
         holder.binding.txtCantidad.setSelection(indexSelection);
         holder.binding.txtCantidad.addTextChangedListener(new TextWatcher() {
             @Override
@@ -118,11 +124,14 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
         holder.binding.txtSubTotal.setText(String.format("%.2f",subtotal));
     }
 
-    public int maximoStock(int cantidad, int maximo){
+    public int maximoStock(int cantidad, int maximo,@NonNull ViewHolder holder){
         if(maximo < cantidad){
             Toast.makeText(CarritoGlobal.activityCarrito, "Sotck maximo es "+maximo,
                     Toast.LENGTH_LONG).show();
-            return cantidad;
+            Log.i(
+                    "Cantidad- stock", cantidad + "- "+maximo
+            );
+            return 0;
         }
         return cantidad;
     }
