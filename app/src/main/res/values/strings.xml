@@ -14,4 +14,12 @@
     <string name="valbtnlogin">Ingresar</string>
     <string name="valbtnDetalles">Detalles</string>
     <string name="valbtnAnadir">Añadir</string>
+    <string name="valtvNombre">Nombre</string>
+    <string name="valtvApellido">Apellidos</string>
+    <string name="valtvCorreo">Correo electrónico</string>
+    <string name="valtvContra">Contraseña</string>
+    <string name="valtvContraCom">Confirmar contraseña</string>
+    <string name="x">REGISTRAR</string>
+    <string name="valbtnRegistrarse">REGISTRARSE</string>
+    <string name="valtvTitulo">REGISTRARME</string>
 </resources>
