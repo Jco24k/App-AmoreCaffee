@@ -22,4 +22,6 @@
     <string name="x">REGISTRAR</string>
     <string name="valbtnRegistrarse">REGISTRARSE</string>
     <string name="valtvTitulo">REGISTRARME</string>
+    <string name="txtRegisterTelf">Ingresar su Telefono</string>
+    <string name="Telef">Telefono</string>
 </resources>

@@ -7,6 +7,9 @@ public class Cliente {
     private String telefono;
     private String correo;
     private Boolean estado;
+    private String token;
+    private String password;
+
     public Cliente() {
     }
 
@@ -19,6 +22,14 @@ public class Cliente {
         this.telefono = telefono;
         this.correo = correo;
         this.estado = estado;
+    }
+
+    public Cliente(String nombre, String apellidos, String telefono, String correo, String password) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.password = password;
     }
 
     public String getId() {
@@ -67,5 +78,13 @@ public class Cliente {
 
     public void setEstado(Boolean estado) {
         this.estado = estado;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

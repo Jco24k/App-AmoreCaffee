@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etpassword" />
 
     <Button
-        android:id="@+id/btnRegistrar"
+        android:id="@+id/btnRegistrarCliente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@android:color/holo_red_light"

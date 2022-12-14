@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.btnlogin.setOnClickListener(this);
+        binding.btnRegistrarCliente.setOnClickListener(this);
         authViewModel = new ViewModelProvider(this)
                 .get(AuthViewModel.class);
         authViewModel.loginMutableLiveData.observe(this,
@@ -52,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v.getId() == R.id.btnlogin){
             autenticarCliente();
+        }else if(v.getId() == R.id.btnRegistrarCliente){
+            Intent intentClient = new Intent(MainActivity.this, MenuActivity.class);
+            startActivity(intentClient);
         }
     }
 
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         requestLogin.setCorreo(binding.etusuario.getText().toString());
         requestLogin.setPassword(binding.etpassword.getText().toString());
         authViewModel.login(requestLogin);
+        finish();
     }
 
     private void iniciarMenu(){

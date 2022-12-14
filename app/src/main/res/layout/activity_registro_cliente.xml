@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroClienteActivity">
+    tools:context=".view.RegistroClienteActivity">
+
+    <ImageButton
+        android:id="@+id/btnRegresarLogin"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#6BE91E63"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_keyboard_arrow_left_24"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView"
@@ -20,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtRNombre"
+        android:id="@+id/txtRegisterNombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -35,7 +45,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/txtRApellido"
+        android:id="@+id/txtRegisterApellido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -46,11 +56,11 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRNombre"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegisterNombre"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/txtRCorreo"
+        android:id="@+id/txtRegisterCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -60,12 +70,30 @@
         android:hint="@string/valtvCorreo"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRApellido"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegisterTelefono"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/txtRContra"
+        android:id="@+id/txtRegisterTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="@string/Telef"
+        android:maxLength="9"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegisterApellido"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/txtRegisterContra"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -76,11 +104,11 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRCorreo"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegisterCorreo"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/txtRContraConfirmar"
+        android:id="@+id/txtRegisterContraConfir"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -91,7 +119,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRContra"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegisterContra"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
@@ -103,6 +131,6 @@
         app:icon="@drawable/ic_baseline_check_circle_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRContraConfirmar" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRegisterContraConfir" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
