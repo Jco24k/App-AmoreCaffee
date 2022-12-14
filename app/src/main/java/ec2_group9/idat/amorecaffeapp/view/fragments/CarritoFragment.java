@@ -1,6 +1,7 @@
 package ec2_group9.idat.amorecaffeapp.view.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -12,14 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import ec2_group9.idat.amorecaffeapp.R;
 import ec2_group9.idat.amorecaffeapp.databinding.FragmentCarritoBinding;
 import ec2_group9.idat.amorecaffeapp.global.CarritoGlobal;
 import ec2_group9.idat.amorecaffeapp.model.DetallePedido;
+import ec2_group9.idat.amorecaffeapp.view.DetalleProductoActivity;
+import ec2_group9.idat.amorecaffeapp.view.PagoActivity;
 import ec2_group9.idat.amorecaffeapp.view.adapter.CarritoAdapter;
 
 import java.util.List;
 
-public class CarritoFragment extends Fragment{
+public class CarritoFragment extends Fragment implements View.OnClickListener {
     private static FragmentCarritoBinding binding;
     public static CarritoAdapter adapterCar = new CarritoAdapter();
     @Override
@@ -28,7 +32,7 @@ public class CarritoFragment extends Fragment{
         binding = FragmentCarritoBinding.inflate(inflater, container,
                 false);
 
-
+        binding.btnPedido.setOnClickListener(this);
         CarritoGlobal.setActivityCarrito(this.getActivity());
 
         enviarResultadoInputs();
@@ -74,4 +78,12 @@ public class CarritoFragment extends Fragment{
         cargarRecyclerView();
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnPedido) {
+            Intent intentPago = new Intent(this.getContext(),
+                    PagoActivity.class);
+            this.getContext().startActivity(intentPago);
+        }
+    }
 }

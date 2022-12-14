@@ -22,7 +22,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".pagoActivity"
+            android:name=".view.PagoActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
