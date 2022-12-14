@@ -11,6 +11,7 @@ public class AmoreeCaffeeClient {
     private CategoriaInterface categoriaInstance;
     private MesaInterface mesaInstance;
     private ProductoInterface productoInstance;
+    private DetallePedidoInterface detPedidoInstance;
 
 
     public AmoreeCaffeeClient() {
@@ -22,6 +23,7 @@ public class AmoreeCaffeeClient {
         categoriaInstance = retrofit.create(CategoriaInterface.class);
         mesaInstance = retrofit.create(MesaInterface.class);
         productoInstance = retrofit.create(ProductoInterface.class);
+        detPedidoInstance = retrofit.create(DetallePedidoInterface.class);
 
     }
 
@@ -34,4 +36,8 @@ public class AmoreeCaffeeClient {
     public MesaInterface getMesaInstance() { return mesaInstance; }
 
     public ProductoInterface getProductoInstance() { return productoInstance; }
+
+    public DetallePedidoInterface getDetPedidoInstance() {
+        return detPedidoInstance;
+    }
 }

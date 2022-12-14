@@ -43,9 +43,15 @@ public class DetalleProductoActivity extends AppCompatActivity implements View.O
             onBackPressed();
         } else if(view.getId() == R.id.btnAnadir) {
             if(objProducto != null){
-                CarritoGlobal.agregarDetalle(objProducto);
-                Toast.makeText(this, "Producto agregado correctamente",
-                        Toast.LENGTH_LONG).show();
+                boolean msj = CarritoGlobal.agregarDetalle(objProducto);
+                if(msj){
+                    Toast.makeText(this, "Producto agregado correctamente",
+                            Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(CarritoGlobal.activityCarrito, "Stock maximo disponible: "+objProducto.getCantidad(),
+                            Toast.LENGTH_SHORT).show();
+                }
+
             }
 
         }

@@ -3,11 +3,13 @@ package ec2_group9.idat.amorecaffeapp.view.adapter;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +22,7 @@ import java.util.List;
 
 import ec2_group9.idat.amorecaffeapp.databinding.ItemDetallepedidoBinding;
 import ec2_group9.idat.amorecaffeapp.databinding.ItemProductoBinding;
+import ec2_group9.idat.amorecaffeapp.filters.CantidadFilter;
 import ec2_group9.idat.amorecaffeapp.global.CarritoGlobal;
 import ec2_group9.idat.amorecaffeapp.model.DetallePedido;
 import ec2_group9.idat.amorecaffeapp.view.fragments.CarritoFragment;
@@ -57,6 +60,7 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
                 .load(responseDetalle.getProducto().getImagenUrl())
                 .into(holder.binding.imvProducto);
         holder.binding.txtCantidad.setSelection(indexSelection);
+        holder.binding.txtCantidad.setFilters(new InputFilter[]{ new CantidadFilter(1,responseDetalle.getProducto().getCantidad())});
         holder.binding.txtCantidad.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -124,17 +128,6 @@ public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHold
         holder.binding.txtSubTotal.setText(String.format("%.2f",subtotal));
     }
 
-    public int maximoStock(int cantidad, int maximo,@NonNull ViewHolder holder){
-        if(maximo < cantidad){
-            Toast.makeText(CarritoGlobal.activityCarrito, "Sotck maximo es "+maximo,
-                    Toast.LENGTH_LONG).show();
-            Log.i(
-                    "Cantidad- stock", cantidad + "- "+maximo
-            );
-            return 0;
-        }
-        return cantidad;
-    }
 
 
     public void mensajeEmergente(int position){
