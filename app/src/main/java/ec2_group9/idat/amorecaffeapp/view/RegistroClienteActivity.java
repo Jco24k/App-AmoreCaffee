@@ -18,6 +18,7 @@ import java.util.List;
 import ec2_group9.idat.amorecaffeapp.R;
 import ec2_group9.idat.amorecaffeapp.databinding.ActivityPagoBinding;
 import ec2_group9.idat.amorecaffeapp.databinding.ActivityRegistroClienteBinding;
+import ec2_group9.idat.amorecaffeapp.global.AuthClienteGlobal;
 import ec2_group9.idat.amorecaffeapp.model.Auth;
 import ec2_group9.idat.amorecaffeapp.model.Cliente;
 import ec2_group9.idat.amorecaffeapp.viewModel.AuthViewModel;
@@ -27,7 +28,6 @@ public class RegistroClienteActivity extends AppCompatActivity implements View.O
 
     private ActivityRegistroClienteBinding binding;
     private ClienteViewModel clienteViewModel;
-    private String token = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +107,8 @@ public class RegistroClienteActivity extends AppCompatActivity implements View.O
 
     private void validarRegistro(Cliente responseCliente) {
         if(responseCliente!=null){
-            token = responseCliente.getToken();
+            AuthClienteGlobal.token = responseCliente.getToken();
+            AuthClienteGlobal.idCliente = responseCliente.getId();
             Intent intentClient = new Intent(RegistroClienteActivity.this,MenuActivity.class);
             startActivity(intentClient);
             finish();

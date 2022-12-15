@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import ec2_group9.idat.amorecaffeapp.R;
 import ec2_group9.idat.amorecaffeapp.databinding.ActivityMainBinding;
+import ec2_group9.idat.amorecaffeapp.global.AuthClienteGlobal;
 import ec2_group9.idat.amorecaffeapp.model.Auth;
 import ec2_group9.idat.amorecaffeapp.viewModel.AuthViewModel;
 
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void validarAutenticacion(Auth responseLogin) {
         if(responseLogin!=null){
-            token = responseLogin.getToken();
+            AuthClienteGlobal.token = responseLogin.getToken();
+            AuthClienteGlobal.idCliente = responseLogin.getId();
             iniciarMenu();
         }else{
             Toast.makeText(this, "Correo o Password incorrecto",
@@ -55,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.btnlogin){
             autenticarCliente();
         }else if(v.getId() == R.id.btnRegistrarCliente){
-            Intent intentClient = new Intent(MainActivity.this, MenuActivity.class);
+            Intent intentClient = new Intent(MainActivity.this, RegistroClienteActivity.class);
             startActivity(intentClient);
         }
     }
@@ -65,13 +67,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         requestLogin.setCorreo(binding.etusuario.getText().toString());
         requestLogin.setPassword(binding.etpassword.getText().toString());
         authViewModel.login(requestLogin);
-        finish();
     }
 
     private void iniciarMenu(){
         Intent intentLista = new Intent(MainActivity.this,MenuActivity.class);
-        intentLista.putExtra("token", (String) token);
         startActivity(intentLista);
-        finish();
     }
 }

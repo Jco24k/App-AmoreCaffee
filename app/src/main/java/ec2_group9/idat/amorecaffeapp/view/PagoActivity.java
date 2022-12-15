@@ -16,4 +16,13 @@ public class PagoActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
     }
+
+
+    private Boolean validateCheckBoxs(){
+        Boolean respuesta = true;
+        if(binding.rgMetodosPago.getCheckedRadioButtonId() == -1){
+            respuesta = false;
+        }
+        return respuesta;
+    }
 }

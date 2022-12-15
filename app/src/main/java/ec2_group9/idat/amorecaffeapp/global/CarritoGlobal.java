@@ -49,4 +49,9 @@ public class CarritoGlobal {
         }
         return true;
     }
+
+    public static void iniciarCarrito(){
+        listaDetallePedido = new ArrayList<>();
+        activityCarrito= null;
+    }
 }
