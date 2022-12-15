@@ -23,9 +23,9 @@ import ec2_group9.idat.amorecaffeapp.viewModel.ClienteViewModel;
 
 public class MiCuentaFragment extends Fragment implements View.OnClickListener {
 
-    private FragmentMiCuentaBinding binding;
+    private static FragmentMiCuentaBinding binding;
     private ClienteViewModel clienteViewModel;
-
+    private static Cliente cli = null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,9 +40,10 @@ public class MiCuentaFragment extends Fragment implements View.OnClickListener {
         clienteViewModel.findOneMutableLiveData.observe(getViewLifecycleOwner(), new Observer<Cliente>() {
             @Override
             public void onChanged(Cliente cliente) {
-                binding.etnombre.setText(cliente.getNombre());
-                binding.etapellido.setText(cliente.getApellidos());
-                binding.etcorreo.setText(cliente.getCorreo());
+                cli = cliente;
+                binding.etnombre.setText(cli.getNombre());
+                binding.etapellido.setText(cli.getApellidos());
+                binding.etcorreo.setText(cli.getCorreo());
             }
         });
 
@@ -60,6 +61,13 @@ public class MiCuentaFragment extends Fragment implements View.OnClickListener {
             Intent intentEditarCliente = new Intent(this.getContext(), EditarClienteActivity.class);
             startActivity(intentEditarCliente);
         }
+    }
+
+    public static void updateCliente(Cliente updateCliente){
+        cli = updateCliente;
+        binding.etnombre.setText(cli.getNombre());
+        binding.etapellido.setText(cli.getApellidos());
+        binding.etcorreo.setText(cli.getCorreo());
     }
 
 }
