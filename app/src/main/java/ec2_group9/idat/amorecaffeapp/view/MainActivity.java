@@ -72,5 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void iniciarMenu(){
         Intent intentLista = new Intent(MainActivity.this,MenuActivity.class);
         startActivity(intentLista);
+        finish();
     }
 }

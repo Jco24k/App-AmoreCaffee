@@ -26,4 +26,8 @@
     <string name="Telef">Telefono</string>
     <string name="valbtnCerrar">Cerrar Sesión</string>
     <string name="valbtnEditar">Editar Perfil</string>
+    <string name="valbtnActualizar">Actualizar Perfil</string>
+    <string name="valtxtNombre">Ingrese su nombre</string>
+    <string name="valtxtApellidos">Ingrese sus apellidos</string>
+    <string name="txtvalTelefono">Ingrese su teléfono</string>
 </resources>

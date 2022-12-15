@@ -1,7 +1,7 @@
 package ec2_group9.idat.amorecaffeapp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -14,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import ec2_group9.idat.amorecaffeapp.R;
 import ec2_group9.idat.amorecaffeapp.databinding.ActivityMenuBinding;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity{
 
     private ActivityMenuBinding binding;
 
@@ -33,6 +33,13 @@ public class MenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+
     }
 
+    public void cerrarSesion() {
+        Intent intentLogin = new Intent(MenuActivity.this, MainActivity.class);
+        startActivity(intentLogin);
+        finish();
+    }
 }

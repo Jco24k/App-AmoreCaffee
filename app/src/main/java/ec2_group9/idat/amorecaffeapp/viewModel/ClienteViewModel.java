@@ -23,6 +23,9 @@ public class ClienteViewModel extends AndroidViewModel {
     public MutableLiveData<Cliente> findOneMutableLiveData
             = new MutableLiveData<>();
 
+    public MutableLiveData<Cliente> updateMutableLiveData
+            = new MutableLiveData<>();
+
     public ClienteViewModel(@NonNull Application application) {
         super(application);
     }
@@ -62,7 +65,7 @@ public class ClienteViewModel extends AndroidViewModel {
                 .enqueue(new Callback<Cliente>() {
                     @Override
                     public void onResponse(Call<Cliente> call, Response<Cliente> response) {
-                        findOneMutableLiveData.setValue(response.body());
+                        updateMutableLiveData.setValue(response.body());
                     }
 
                     @Override

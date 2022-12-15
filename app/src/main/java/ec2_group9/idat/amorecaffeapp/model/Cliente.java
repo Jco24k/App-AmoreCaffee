@@ -32,6 +32,12 @@ public class Cliente {
         this.password = password;
     }
 
+    public Cliente(String nombre, String apellidos, String telefono) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.telefono = telefono;
+    }
+
     public String getId() {
         return id;
     }
