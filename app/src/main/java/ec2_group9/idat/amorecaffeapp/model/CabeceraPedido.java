@@ -12,7 +12,7 @@ public class CabeceraPedido {
     private String tipo_pedido;
     private Cliente cliente;
     private Mesa mesa;
-
+    private String message;
     public CabeceraPedido() {
     }
 
@@ -26,6 +26,23 @@ public class CabeceraPedido {
         this.tipo_pedido = tipo_pedido;
         this.cliente = cliente;
         this.mesa = mesa;
+    }
+
+    public CabeceraPedido(String forma_pago, String cliente_pedido, Double total, String tipo_pedido, Cliente cliente, Mesa mesa) {
+        this.forma_pago = forma_pago;
+        this.cliente_pedido = cliente_pedido;
+        this.total = total;
+        this.tipo_pedido = tipo_pedido;
+        this.cliente = cliente;
+        this.mesa = mesa;
+    }
+
+    public CabeceraPedido(String forma_pago, String cliente_pedido, Double total, String tipo_pedido, Cliente cliente) {
+        this.forma_pago = forma_pago;
+        this.cliente_pedido = cliente_pedido;
+        this.total = total;
+        this.tipo_pedido = tipo_pedido;
+        this.cliente = cliente;
     }
 
     public String getId() {

@@ -28,5 +28,7 @@ public interface DetallePedidoInterface {
     @DELETE(Routes.detallePedido +"/{id}")
     public Call<?> delete(@Path("id") String id);
 
+    @POST(Routes.detallePedido +"/createall")
+    public Call<List<DetallePedido>> createAll(@Body List<DetallePedido> listDetallePedido);
 
 }

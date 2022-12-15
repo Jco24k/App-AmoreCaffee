@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import ec2_group9.idat.amorecaffeapp.R;
@@ -56,7 +57,6 @@ public class CarritoFragment extends Fragment implements View.OnClickListener {
     }
 
     private static void enviarResultadoInputs(){
-        Log.i("TOTAL:",String.format("%.2f", calcularTotal()));
         binding.txtTotal.setText(String.format("%.2f", calcularTotal()));
     }
 
@@ -81,9 +81,13 @@ public class CarritoFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnPedido) {
-            Intent intentPago = new Intent(this.getContext(),
-                    PagoActivity.class);
-            this.getContext().startActivity(intentPago);
+            if(CarritoGlobal.listaDetallePedido.size() == 0){
+                Toast.makeText(CarritoGlobal.activityCarrito, "Carrito de Pedido Vacio",Toast.LENGTH_SHORT).show();
+            }else{
+                Intent intentPago = new Intent(this.getContext(),
+                        PagoActivity.class);
+                this.getContext().startActivity(intentPago);
+            }
         }
     }
 }
