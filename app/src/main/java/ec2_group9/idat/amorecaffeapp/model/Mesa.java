@@ -15,6 +15,9 @@ public class Mesa {
         this.estado = estado;
     }
 
+    public Mesa(String nombre){
+        this.nombre = nombre;
+    }
     public String getId() {
         return id;
     }

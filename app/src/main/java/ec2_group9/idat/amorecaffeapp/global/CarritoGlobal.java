@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import ec2_group9.idat.amorecaffeapp.model.CabeceraPedido;
 import ec2_group9.idat.amorecaffeapp.model.Categoria;
 import ec2_group9.idat.amorecaffeapp.model.DetallePedido;
 import ec2_group9.idat.amorecaffeapp.model.Producto;
@@ -52,6 +53,11 @@ public class CarritoGlobal {
 
     public static void iniciarCarrito(){
         listaDetallePedido = new ArrayList<>();
-        activityCarrito= null;
+    }
+
+    public static void addCabeceraPedido(CabeceraPedido cab){
+        for (DetallePedido det:listaDetallePedido) {
+            det.setCabeceraPedido(cab);
+        }
     }
 }

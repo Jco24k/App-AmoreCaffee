@@ -7,7 +7,7 @@
     tools:context=".view.PagoActivity">
 
     <Button
-        android:id="@+id/btnPedido2"
+        android:id="@+id/btnRegistrarVenta"
         android:layout_width="391dp"
         android:layout_height="62dp"
         android:layout_marginStart="10dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtNombrePago" />
 
     <ImageButton
-        android:id="@+id/btnRegresarProducto3"
+        android:id="@+id/btnRegresarCarrito"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:backgroundTint="#6BE91E63"
@@ -44,7 +44,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegresarProducto3" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegresarCarrito" />
 
     <TextView
         android:id="@+id/textView4"
@@ -168,6 +168,7 @@
             android:id="@+id/rbtLlevar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Para Llevar" />
 
         <Space
@@ -207,6 +208,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
+        android:enabled="true"
         android:inputType="textPersonName"
         android:text="Codigo"
         android:textAlignment="center"
