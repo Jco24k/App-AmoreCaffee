@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import ec2_group9.idat.amorecaffeapp.databinding.FragmentMiCuentaBinding;
+import ec2_group9.idat.amorecaffeapp.global.AuthClienteGlobal;
 import ec2_group9.idat.amorecaffeapp.model.Cliente;
 import ec2_group9.idat.amorecaffeapp.viewModel.ClienteViewModel;
 
@@ -25,7 +26,7 @@ public class MiCuentaFragment extends Fragment {
                 false);
         clienteViewModel = new ViewModelProvider(requireActivity())
                 .get(ClienteViewModel.class);
-        clienteViewModel.findOne("854c11d8-c578-475f-baf0-27fbd803aec2");
+        clienteViewModel.findOne(AuthClienteGlobal.idCliente);
         clienteViewModel.findOneMutableLiveData.observe(getViewLifecycleOwner(), new Observer<Cliente>() {
             @Override
             public void onChanged(Cliente cliente) {
