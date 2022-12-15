@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import ec2_group9.idat.amorecaffeapp.R;
 import ec2_group9.idat.amorecaffeapp.databinding.FragmentMiCuentaBinding;
 import ec2_group9.idat.amorecaffeapp.global.AuthClienteGlobal;
+import ec2_group9.idat.amorecaffeapp.global.CarritoGlobal;
 import ec2_group9.idat.amorecaffeapp.model.Cliente;
 import ec2_group9.idat.amorecaffeapp.view.EditarClienteActivity;
 import ec2_group9.idat.amorecaffeapp.view.MainActivity;
@@ -51,6 +52,8 @@ public class MiCuentaFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btncerrar) {
+            CarritoGlobal.iniciarCarrito();
+            AuthClienteGlobal.iniciarDatos();
             Intent intentLogin = new Intent(this.getContext(), MainActivity.class);
             startActivity(intentLogin);
         } else if (view.getId() == R.id.btneditar) {
