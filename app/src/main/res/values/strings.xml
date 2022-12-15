@@ -24,4 +24,6 @@
     <string name="valtvTitulo">REGISTRARME</string>
     <string name="txtRegisterTelf">Ingresar su Telefono</string>
     <string name="Telef">Telefono</string>
+    <string name="valbtnCerrar">Cerrar Sesión</string>
+    <string name="valbtnEditar">Editar Perfil</string>
 </resources>

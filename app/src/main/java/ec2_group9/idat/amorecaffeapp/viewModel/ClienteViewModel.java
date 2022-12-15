@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import ec2_group9.idat.amorecaffeapp.model.Auth;
 import ec2_group9.idat.amorecaffeapp.model.Cliente;
+import ec2_group9.idat.amorecaffeapp.model.Producto;
 import ec2_group9.idat.amorecaffeapp.retrofit.AmoreeCaffeeClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,6 +18,9 @@ import retrofit2.Response;
 public class ClienteViewModel extends AndroidViewModel {
 
     public MutableLiveData<Cliente> registroMutableLiveData
+            = new MutableLiveData<>();
+
+    public MutableLiveData<Cliente> findOneMutableLiveData
             = new MutableLiveData<>();
 
     public ClienteViewModel(@NonNull Application application) {
@@ -38,5 +42,34 @@ public class ClienteViewModel extends AndroidViewModel {
                 });
     }
 
+    public void findOne(String id){
+        new AmoreeCaffeeClient().getClienteInstance().findOne(id)
+                .enqueue(new Callback<Cliente>() {
+                    @Override
+                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                        findOneMutableLiveData.setValue(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<Cliente> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
+    }
+
+    public void update(Cliente cliente, String id){
+        new AmoreeCaffeeClient().getClienteInstance().update(cliente,id)
+                .enqueue(new Callback<Cliente>() {
+                    @Override
+                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                        findOneMutableLiveData.setValue(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<Cliente> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
+    }
 
 }

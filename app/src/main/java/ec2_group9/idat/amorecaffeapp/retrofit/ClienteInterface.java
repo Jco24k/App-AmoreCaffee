@@ -25,8 +25,8 @@ public interface ClienteInterface {
     @POST(Routes.cliente +"/create")
     public Call<Cliente> create(@Body Cliente cliente);
 
-    @PATCH(Routes.cliente)
-    public Call<Cliente> update(@Body Cliente cliente);
+    @PATCH(Routes.cliente +"/{id}")
+    public Call<Cliente> update(@Body Cliente cliente, @Path("id") String id);
 
     @DELETE(Routes.cliente +"/{id}")
     public Call<?> delete(@Path("id") String id);
